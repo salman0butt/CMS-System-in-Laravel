@@ -4,7 +4,9 @@
     "gulp": "^3.9.1"
   },
   "dependencies": {
-    "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "bootstrap-sass": "^3.0.0",
+    "buble-loader": "^0.5.1",
+    "core-util-is": "^1.0.2",
+    "laravel-elixir": "^5.0.0"
   }
 }
