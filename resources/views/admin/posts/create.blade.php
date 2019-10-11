@@ -2,7 +2,6 @@
 
 
 @section('content')
-
     <h1>Create Post</h1>
 <div class="row">
     {!! Form::open(['method'=>'POST', 'action'=>'AdminPostsController@store','files'=>true]) !!}
@@ -12,7 +11,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('category_id', 'Category:') !!}
-        {!! Form::select('category_id', array(''=>'Select Options',1=>'PHP', 0=>'Javascript'), null ,['class' =>'form-control']) !!}
+        {!! Form::select('category_id', [''=>'Choose Category'] + $categories, null ,['class' =>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('photo_id', 'Photo:') !!}
