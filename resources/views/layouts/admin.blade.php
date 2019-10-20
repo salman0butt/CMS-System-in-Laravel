@@ -144,6 +144,10 @@
                             <li>
                                 <a href="{{ route('admin.posts.create') }}">Create Post</a>
                             </li>
+                            <li>
+                                <a href="{{route('admin.comments.index')}}">All Comments</a>
+                            </li>
+
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -180,12 +184,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
-
-
-
-
 
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
