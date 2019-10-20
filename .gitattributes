@@ -1,4 +1,4 @@
 * text=auto
 *.css linguist-vendored
 *.less linguist-vendored
-* linguist-language=Laravel
+* linguist-language=php
