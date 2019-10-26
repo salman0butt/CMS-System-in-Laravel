@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -46,10 +47,10 @@ class PostCommentsController extends Controller
             'post_id' => $request->post_id,
             'author' => $user->name,
             'email' => $user->email,
-            'photo' => $user->photo->file,
             'body' => $request->body,
-        ];
+            'photo' => $user->photo->file,
 
+        ];
         Comment::create($data);
         $request->session()->flash('comment_msg', 'Your message has been submitted and waiting for approval');
         return redirect()->back();
@@ -61,10 +62,6 @@ class PostCommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -104,6 +101,13 @@ class PostCommentsController extends Controller
         Comment::findOrFail($id)->delete();
 
         return redirect()->back();
-        //TODO Continue with comment section and with lecture no 11
+
+    }
+    public function show($id) {
+        $post = Post::findOrFail($id);
+        $comments = $post->comments;
+
+        return view('admin.comments.show', compact('comments'));
     }
 }
+

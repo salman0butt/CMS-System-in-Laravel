@@ -10,10 +10,12 @@
         <tr>
             <td>id</td>
             <td>photo</td>
-            <td>User</td>
+            <td>Author</td>
             <td>Category</td>
             <td>Title</td>
             <td>Description</td>
+            <td>Link</td>
+            <td>Comments</td>
             <td>Created_at</td>
             <td>Updated_at</td>
         </tr>
@@ -28,6 +30,8 @@
             <td>{{ ($post->category ? $post->category->name : 'Uncategorized') }}</td>
             <td>{{ $post->title }}</td>
             <td>{{ str_limit($post->body, 30) }}</td>
+            <td><a href="{{ route('home.post', $post->id) }}">View Post</a></td>
+            <td><a href="{{ route('admin.comments.show', $post->id) }}">View Comments</a></td>
             <td>{{ $post->created_at->diffForHumans() }}</td>
             <td>{{ $post->updated_at->diffForHumans() }}</td>
         </tr>
