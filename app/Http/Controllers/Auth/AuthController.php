@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
@@ -21,7 +23,7 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use  ThrottlesLogins;
 
     /**
      * Where to redirect users after login / registration.
@@ -37,8 +39,9 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout']);
     }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -69,4 +72,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    public function getLogout(){
+        Auth::logout();
+        Session::flush();
+        return Redirect::to('/');
+    }
+
 }

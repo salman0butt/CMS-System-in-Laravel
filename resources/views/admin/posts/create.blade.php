@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 
+
 @section('content')
     <h1>Create Post</h1>
 <div class="row">
@@ -29,5 +30,7 @@
     <div class="row">
         @include('includes.form-error')
     </div>
-
+@section('scripts')
+    @include('includes.tinymce')
+@stop
 @stop

@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class AdminPostsController extends Controller
 {
     /**
@@ -21,7 +23,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::paginate(2);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -33,7 +35,7 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        $categories = Category::lists('name','id')->all();
+        $categories = Category::pluck('name','id')->all();
 
         return view('admin.posts.create', compact('categories'));
     }
@@ -49,6 +51,8 @@ class AdminPostsController extends Controller
     {
         //
         $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
+
         $user = Auth::user();
 //        $user = Post::Create($request->all());
 
@@ -83,7 +87,7 @@ class AdminPostsController extends Controller
     {
         //
         $post = Post::findOrFail($id);
-        $categories = Category::lists('name','id')->all();
+        $categories = Category::pluck('name','id')->all();
         return view('admin.posts.edit', compact('post','categories'));
     }
 
@@ -120,7 +124,9 @@ class AdminPostsController extends Controller
     {
         //
         $post = Post::findOrFail($id);
-        unlink(public_path(), $post->photo->file);
+
+       unlink(public_path() .$post->photo->file);
+
         $post->delete();
         return redirect('/admin/posts');
     }
@@ -133,8 +139,6 @@ class AdminPostsController extends Controller
         return view('post', compact('post','comments'));
 
     }
-
-
-
+//TODO slugg
 
 }
