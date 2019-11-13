@@ -42,7 +42,7 @@ class AdminMediasController extends Controller
         $photo->delete();
 
     }
-
+//TODO larvael 5.4 files update
     public function deleteMedia(Request $request)
     {
 

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
-Route::get('/logout', 'Auth\AuthController@getLogout');
+Route::get('/logout', 'Auth\LoginController@Logout');
 Route::get('/login', function(){
     return view('auth.login');
 
@@ -25,16 +25,11 @@ Route::get('/register', function(){
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Route::group(['middleware'=>'admin'], function(){
 
-    Route::get('/admin', function(){
-        return view('admin.index');
-
-    });
+    Route::get('/admin', 'AdminController@index');
 
 
     Route::resource('admin/users', 'AdminUsersController',['names'=>[

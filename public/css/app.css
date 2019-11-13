@@ -1,9 +1,5 @@
 #admin-page {
-    padding-top: 0px;
+  padding-top: 0px !important;
 }
-#nested-comment {
-    margin-top: 60px;
-}
-.comment-reply {
-      display: none;
-  }
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQzpcXGxhcmFnb25cXHd3d1xcYmxvZ1xccmVzb3VyY2VzXFxhc3NldHNcXHNhc3NcXGFwcC5zY3NzIiwic291cmNlcyI6WyIvbGFyYWdvbi93d3cvYmxvZy9yZXNvdXJjZXMvYXNzZXRzL3Nhc3MvYXBwLnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQGltcG9ydCBcIm5vZGVfbW9kdWxlcy9ib290c3RyYXAtc2Fzcy9hc3NldHMvc3R5bGVzaGVldHMvYm9vdHN0cmFwXCI7XG4jYWRtaW4tcGFnZSB7XG4gIHBhZGRpbmctdG9wOiAwcHggIWltcG9ydGFudDtcbn0iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0EsQUFBQSxXQUFXLENBQUM7RUFDVixXQUFXLEVBQUUsY0FBYztDQUM1QiJ9 */
