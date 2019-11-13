@@ -26,7 +26,7 @@
     <hr>
 
     <!-- Post Content -->
-    <p class="lead">{{ $post->body }}</p>
+    <p class="lead">{{ strip_tags($post->body) }}</p>
 
     <hr>
     @if (Session::has('comment_msg'))

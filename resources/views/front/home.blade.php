@@ -16,7 +16,7 @@
         <hr>
         <img class="img-responsive" src="{{ $post->photo->file }}" alt="">
         <hr>
-        <p>{!! str_limit($post->body) !!}</p>
+        <p>{!! str_limit(strip_tags($post->body)) !!}</p>
         <a class="btn btn-primary" href="/post/{{ $post->id }}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
         <hr>
